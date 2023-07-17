@@ -1,0 +1,26 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "esbuild --bundle src/main.jsx --outfile=main.js --servedir=./ --watch",
+    "build": "esbuild --bundle src/main.jsx --outfile=main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thaisquirino/React-Completo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thaisquirino/React-Completo/issues"
+  },
+  "homepage": "https://github.com/thaisquirino/React-Completo#readme",
+  "dependencies": {
+    "esbuild": "^0.18.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
