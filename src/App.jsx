@@ -1,23 +1,26 @@
 import React from 'react';
+function operacaoLenta() {
+  let c;
+  for (let i = 0; i < 100000000; i++) {
+    c = i + i / 10;
+  }
+  return c;
+}
+
 const App = () => {
   const [contar, setContar] = React.useState(0);
-  const [notificacao, setNotificacao] = React.useState(null);
-  const timeoutRef = React.useRef();
 
-  function handleClick() {
-    setNotificacao('Obrigado por comprar');
-    clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      setNotificacao(null);
-    }, 1000);
-    setContar(contar + 1);
-  }
+  // const valor = React.useMemo(() => {
+  //   const localItem = window.localStorage.getItem('produto');
+  //   console.log('Aconteceu o memo');
+  //   return localItem;
+  //}, []);
+  const t1 = performance.now();
+  const valor = operacaoLenta();
 
-  return (
-    <div>
-      <p>{notificacao}</p>
-      <button onClick={handleClick}>{contar}</button>
-    </div>
-  );
+  console.log(performance.now() - t1);
+
+  return <button onClick={() => setContar + 1}>{contar} </button>;
 };
+
 export default App;
