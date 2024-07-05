@@ -16,9 +16,10 @@ const App = () => {
   //   return localItem;
   //}, []);
   const t1 = performance.now();
-  const valor = operacaoLenta();
+  const valor = React.useMemo(() => operacaoLenta(), []);
 
   console.log(performance.now() - t1);
+  console.log(valor);
 
   return <button onClick={() => setContar + 1}>{contar} </button>;
 };
